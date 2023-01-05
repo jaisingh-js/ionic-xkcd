@@ -7,7 +7,7 @@ import { Comic } from '../interfaces/comic';
   providedIn: 'root'
 })
 export class XkcdService {
-  apiUrl = 'http://xkcd.com/'
+  apiUrl = 'https://xkcd.com/'
 
   constructor(private http: HttpClient) { }
 
