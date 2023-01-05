@@ -1,20 +1,65 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title> Blank </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <section class="center-container">
+    <ion-grid [fixed]="true" class="ion-justify-content-center">
+      <ion-row class="ion-padding">
+        <ion-col>
+          <ion-button (click)="getPrev()">Prev</ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="getRandom()">Random</ion-button>
+        </ion-col>
+        <ion-col size="auto">
+          <ion-button (click)="getNext()">Next</ion-button>
+        </ion-col>
+      </ion-row>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+      <ion-row>
+        <ion-col></ion-col>
+        <ion-col size="auto">
+          <svg
+            *ngIf="loading"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            style="margin: auto; background: rgb(241, 242, 243); display: block"
+            width="200px"
+            height="200px"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="xMidYMid"
+          >
+            <circle
+              cx="50"
+              cy="50"
+              r="32"
+              stroke-width="8"
+              stroke="#1d3f72"
+              stroke-dasharray="50.26548245743669 50.26548245743669"
+              fill="none"
+              stroke-linecap="round"
+            >
+              <animateTransform
+                attributeName="transform"
+                type="rotate"
+                repeatCount="indefinite"
+                dur="1s"
+                keyTimes="0;1"
+                values="0 50 50;360 50 50"
+              ></animateTransform>
+            </circle>
+          </svg>
+          <ion-img
+            *ngIf="!loading"
+            class="main-image"
+            [src]="comicData?.img"
+          ></ion-img>
+        </ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+    </ion-grid>
+  </section>
 </ion-content>
